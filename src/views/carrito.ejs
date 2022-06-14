@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap-icons.css" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <title>carro</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                    <img src="Logo.png">
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <table class="table table-bordered table-hover">
+                    <thead class="bg-info">
+                        <tr>
+                            <td>Producto</td>
+                            <td>Cantidad</td>
+                            <td>Precio</td>
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if(data){%>
+                            <% for(var i = 0; i < data.length; i++){%>
+                                <tr>
+                                    <td>
+                                        <%= data[i].pro_nombre %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].ca_cantidad %>
+                                    </td>
+                                    <td>
+                                        <%= data[i].ca_precio %>
+                                    </td>
+                                    <td>
+                                        <a href="/carro/delete/<%= data[i].ca_usuario%>/<%= data[i].ca_producto%>" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                                    <% }  %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        <button class="btn btn-primary btn-lg btn-block mt-5" onclick="javascript:window.location.href='/producto'">Volver a la tienda</button>
+                    </div>
+                    <div class="col-1">
+                        <button class="btn btn-primary btn-lg btn-block mt-5" onclick="javascript:window.location.href='/carro/deleteAll'">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer position-static bottom-0 start-0 w-100">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-4 p-3">
+                    <h6>Direccion: Av.Molino 1445 local 7A</h6>
+                    <h6>Telefono: +56 2 1234 5678</h6>
+                    <h6>E-mail: Dale.Color@hotmail.com</h6>
+                </div>
+                <div class="text-center col-4 p-3">
+                    <img src="flor.png">
+                </div>
+                <div class="text-center col-4 p-3">
+                    <p><br>Siempre colorea tu vida <br>con felicidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

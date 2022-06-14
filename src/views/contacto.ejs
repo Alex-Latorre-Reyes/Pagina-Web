@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap-icons.css" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <title>Contacto</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                    <img src="Logo.png">
+                </div>
+                <div class="col-2 position-absolute top-0 end-0">
+                    <div class="row">
+                        <div class="col-4 dropdown">
+                            <button class="btn btn-lg" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person bi-md"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item bi bi-person-x-fill" href="/contacto/out"> Desconectar</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-4">
+                            <button class="btn btn-lg" onclick="javascript:window.location.href='/carro'">
+                                <i class="bi bi-cart bi-md"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <nav>
+        <div class="container bg-info rounded">
+            <div class="row">
+                <div class="col-4 text-center">
+                    <a href="/index"><button type="button" class="btn outline-info bg-info">Inicio</button></a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="/producto"><button type="button" class="btn outline-info bg-info">Productos</button></a>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="/contacto"><button type="button" class="btn outline-info bg-info">Contacto</button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <h3 class="mb-5">Contacto</h3>
+                            <form name="contacto" action="/contacto/save" method="post">
+                                <div class="form-group">
+                                    <input type="text" name="nombre" placeholder="Nombre" class="form-control form-control-lg" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="email" placeholder="Email" class="form-control form-control-lg">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="tel" placeholder="Telefono" class="form-control form-control-lg">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="direccion" placeholder="Direccion" class="form-control form-control-lg">
+                                </div>
+                                <button type="submit" id="boton" onclick="valida_envia()" class="btn btn-primary btn-lg btn-block mt-5">Enviar</button>
+                                <script>
+                                    function valida_envia() {
+                                        //valido el nombre
+                                        if (document.contacto.nombre.value.length == 0) {
+                                            alert("Tiene que escribir su nombre")
+                                            document.contacto.nombre.focus()
+                                            return;
+                                        }
+                                        if (document.contacto.email.value.length == 0) {
+                                            alert("Tiene que escribir su email")
+                                            document.contacto.email.focus()
+                                            return;
+                                        }
+                                        if (document.contacto.dom.value.length == 0) {
+                                            alert("Tiene que escribir el dominio de su email")
+                                            document.contacto.dom.focus()
+                                            return 0;
+                                        }
+                                        if (document.contacto.tel.value.length == 0) {
+                                            alert("Tiene que escribir su telefono")
+                                            document.contacto.tel.focus()
+                                            return 0;
+                                        }
+                                        if (document.contacto.direccion.value.length == 0) {
+                                            alert("Tiene que escribir su direccion")
+                                            document.contacto.direccion.focus()
+                                            return 0;
+                                        }
+                                        alert("Muchas gracias por enviar el formulario");
+                                        document.contacto.submit();
+                                    }
+                                </script>
+                            </form>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <div class="col-3"></div>
+
+    <div class="footer position-static bottom-0 start-0 w-100">
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-4 p-3">
+                    <h6>Direccion: Av.Molino 1445 local 7A</h6>
+                    <h6>Telefono: +56 2 1234 5678</h6>
+                    <h6>E-mail: Dale.Color@hotmail.com</h6>
+                </div>
+                <div class="text-center col-4 p-3">
+                    <img src="flor.png">
+                </div>
+                <div class="text-center col-4 p-3">
+                    <p><br>Siempre colorea tu vida <br>con felicidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
